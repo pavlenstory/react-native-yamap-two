@@ -168,8 +168,13 @@
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(externalRadius*2, externalRadius*2), NO, 1.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [clusterColor CGColor]);
-    CGContextSetAlpha(context, 0.6);
+    CGContextSetAlpha(context, 1);
     CGContextFillEllipseInRect(context, CGRectMake(0, 0, externalRadius*2, externalRadius*2));
+    
+    CGContextSetFillColorWithColor(context, [UIColor.blackColor CGColor]);
+    CGContextSetAlpha(context, 0.15);
+    CGContextFillEllipseInRect(context, CGRectMake(0, 0, externalRadius*2, externalRadius*2));
+    
     CGContextSetFillColorWithColor(context, [clusterColor CGColor]);
     CGContextSetAlpha(context, 1);
     CGContextFillEllipseInRect(context, CGRectMake(STROKE_SIZE, STROKE_SIZE, internalRadius*2, internalRadius*2));

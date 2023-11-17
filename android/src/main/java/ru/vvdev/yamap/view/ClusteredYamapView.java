@@ -134,6 +134,7 @@ public class ClusteredYamapView extends YamapView implements ClusterListener, Cl
             textPaint.setTextSize(FONT_SIZE);
             textPaint.setTextAlign(Paint.Align.CENTER);
             textPaint.setStyle(Paint.Style.FILL);
+            textPaint.setColor(Color.WHITE);
             textPaint.setAntiAlias(true);
 
             float widthF = textPaint.measureText(text);
@@ -151,9 +152,16 @@ public class ClusteredYamapView extends YamapView implements ClusterListener, Cl
             Paint backgroundPaint = new Paint();
             backgroundPaint.setAntiAlias(true);
             backgroundPaint.setColor(clusterColor);
+            backgroundPaint.setAlpha(255);
             canvas.drawCircle(width / 2, width / 2, externalRadius, backgroundPaint);
 
-            backgroundPaint.setColor(Color.WHITE);
+            backgroundPaint.setAntiAlias(true);
+            backgroundPaint.setColor(Color.BLACK);
+            backgroundPaint.setAlpha(38);
+            canvas.drawCircle(width / 2, width / 2, externalRadius, backgroundPaint);
+
+            backgroundPaint.setAlpha(255);
+            backgroundPaint.setColor(clusterColor);
             canvas.drawCircle(width / 2, width / 2, internalRadius, backgroundPaint);
 
             canvas.drawText(

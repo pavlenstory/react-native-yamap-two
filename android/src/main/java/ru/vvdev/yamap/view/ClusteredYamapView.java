@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.yandex.mapkit.geometry.Point;
 import com.yandex.mapkit.map.CameraPosition;
 import com.yandex.mapkit.map.CameraUpdateReason;
+import com.yandex.mapkit.map.CircleMapObject;
 import com.yandex.mapkit.map.Cluster;
 import com.yandex.mapkit.map.ClusterListener;
 import com.yandex.mapkit.map.ClusterTapListener;
@@ -22,11 +24,15 @@ import com.yandex.mapkit.map.ClusterizedPlacemarkCollection;
 import com.yandex.mapkit.map.IconStyle;
 import com.yandex.mapkit.map.MapObject;
 import com.yandex.mapkit.map.PlacemarkMapObject;
+import com.yandex.mapkit.map.PolygonMapObject;
+import com.yandex.mapkit.map.PolylineMapObject;
 import com.yandex.runtime.image.ImageProvider;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import ru.vvdev.yamap.models.ReactMapObject;
 
 public class ClusteredYamapView extends YamapView implements ClusterListener, ClusterTapListener {
     private ClusterizedPlacemarkCollection clusterCollection;
@@ -86,6 +92,9 @@ public class ClusteredYamapView extends YamapView implements ClusterListener, Cl
         if (placemark!=null) {
             marker.setMapObject(placemark);
         }
+        else {
+            super.addFeature(child, index);
+        }
     }
 
     @Override
@@ -95,6 +104,7 @@ public class ClusteredYamapView extends YamapView implements ClusterListener, Cl
             if (child == null) return;
             final MapObject mapObject = child.getMapObject();
             if (mapObject == null || !mapObject.isValid()) return;
+
             clusterCollection.remove(mapObject);
             placemarksMap.remove("" + child.point.getLatitude() + child.point.getLongitude());
         }

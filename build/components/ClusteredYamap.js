@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
+    __assign = Object.assign || function (t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -157,7 +157,7 @@ var ClusteredYamap = /** @class */ (function (_super) {
         return img ? resolveAssetSource_1.default(img).uri : '';
     };
     ClusteredYamap.prototype.getProps = function () {
-        var props = __assign(__assign({}, this.props), { clusteredMarkers: this.props.clusteredMarkers.map(function (mark) { return mark.point; }), children: this.props.clusteredMarkers.map(this.props.renderMarker), onRouteFound: this.processRoute, onCameraPositionReceived: this.processCameraPosition, onVisibleRegionReceived: this.processVisibleRegion, onWorldToScreenPointsReceived: this.processWorldToScreenPointsReceived, onScreenToWorldPointsReceived: this.processScreenToWorldPointsReceived, userLocationIcon: this.props.userLocationIcon ? this.resolveImageUri(this.props.userLocationIcon) : undefined });
+        var props = __assign(__assign({}, this.props), { clusteredMarkers: this.props.clusteredMarkers.map(function (mark) { return mark.point; }), children: __spreadArrays(this.props.clusteredMarkers.map(this.props.renderMarker), (this.props.children ? Array.isArray(this.props.children) ? this.props.children : [this.props.children] : [])), onRouteFound: this.processRoute, onCameraPositionReceived: this.processCameraPosition, onVisibleRegionReceived: this.processVisibleRegion, onWorldToScreenPointsReceived: this.processWorldToScreenPointsReceived, onScreenToWorldPointsReceived: this.processScreenToWorldPointsReceived, userLocationIcon: this.props.userLocationIcon ? this.resolveImageUri(this.props.userLocationIcon) : undefined });
         utils_1.processColorProps(props, 'clusterColor');
         utils_1.processColorProps(props, 'userLocationAccuracyFillColor');
         utils_1.processColorProps(props, 'userLocationAccuracyStrokeColor');

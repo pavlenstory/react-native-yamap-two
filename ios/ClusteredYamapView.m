@@ -21,7 +21,8 @@ RCT_EXPORT_MODULE()
         @"onVisibleRegionReceived",
         @"onCameraPositionChange",
         @"onMapPress",
-        @"onMapLongPress"
+        @"onMapLongPress",
+        @"onCameraPositionChangeEnd"
     ];
 }
 
@@ -51,6 +52,7 @@ RCT_EXPORT_VIEW_PROPERTY(onVisibleRegionReceived, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onCameraPositionChange, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onMapPress, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onMapLongPress, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onCameraPositionChangeEnd, RCTBubblingEventBlock)
 
 RCT_CUSTOM_VIEW_PROPERTY(userLocationAccuracyFillColor, NSNumber, RNCYMView) {
     [view setUserLocationAccuracyFillColor:[RCTConvert UIColor:json]];
